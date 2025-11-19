@@ -28,6 +28,7 @@ public class Nodo <T extends Comparable<T>> {
         return ""+elemento + 
         ", P: " +(parent != null ? parent.elemento : "/") +
         ", L: " +(left != null ? left.elemento : "/") + 
-        ", R: " +(right != null ? right.elemento : "/");
+        ", R: " +(right != null ? right.elemento : "/") + 
+        ", C: " + (color == Color.RED ? "R" : "B");
         }
     }
