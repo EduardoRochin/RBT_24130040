@@ -8,9 +8,9 @@ public class RBT<T extends Comparable<T>> {
 
     public void insert(T elemento) {
         Nodo<T> newNode = new Nodo<>(elemento);
+        size++;
         if (root == null) {
-            root = newNode;
-            size++;
+            root = newNode;            
             return;
         } 
         Nodo<T> actual = root;
