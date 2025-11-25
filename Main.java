@@ -36,16 +36,20 @@ public class Main extends JFrame {
 
         //Botones de insertar y area de texto
         JPanel panel = new JPanel(); // por defecto FlowLayout
-        panel.setLayout(new GridLayout(1,2));
+        panel.setLayout(new GridLayout(1,3));
         this.add(panel,BorderLayout.NORTH);
         JButton boton = new JButton("Insertar");
         boton.setFont(font);
+        JButton botonBorrar = new JButton("Eliminar");
+        botonBorrar.setFont(font);
         boton.addActionListener(e -> this.dibujar());        
         texto = new JTextField(40);
         texto.setFont(font);
         texto.setHorizontalAlignment(JTextField.CENTER);
         panel.add(texto);
         panel.add(boton);
+        
+        panel.add(botonBorrar);
         setVisible(true);
     }
 
