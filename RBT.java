@@ -11,16 +11,16 @@ public class RBT<T extends Comparable<T>> {
 
     public void insert(T elemento) {
         Nodo<T> newNode = new Nodo<>(elemento);
-        newNode.color = Color.RED; // Nuevos nodos siempre rojos
+        newNode.color = Color.RED; 
         size++;
         
         if (root == null) {
             root = newNode;
-            root.color = Color.BLACK; // Raíz siempre negra
+            root.color = Color.BLACK; // raíz siempre debe ser negra
             return;
         }
         
-        // Inserción BST normal
+        // inserción BST normal
         Nodo<T> actual = root;
         while (true) {
             if (actual.elemento.compareTo(elemento) > 0) {
@@ -40,11 +40,11 @@ public class RBT<T extends Comparable<T>> {
             }
         }
         
-        // Reparar propiedades del árbol rojo-negro
+        // reparar árbol después de inserción
         fixInsert(newNode);
     }
 
-    // Reparar árbol después de inserción
+    
     private void fixInsert(Nodo<T> node) {
         while (node != root && node.parent.color == Color.RED) {
             if (node.parent == node.parent.parent.left) {
@@ -115,7 +115,7 @@ public class RBT<T extends Comparable<T>> {
         return null;
     }
 
-    // Eliminar nodo del árbol
+    // eliminar nodo del árbol
     private void deleteNode(Nodo<T> node) {
         Nodo<T> y = node;
         Nodo<T> x;
@@ -151,7 +151,7 @@ public class RBT<T extends Comparable<T>> {
         }
     }
 
-    // Reparar árbol después de eliminación
+    // reparar arbool después de eliminación
     private void fixDelete(Nodo<T> node) {
         while (node != root && node.color == Color.BLACK) {
             if (node == node.parent.left) {
@@ -231,7 +231,7 @@ public class RBT<T extends Comparable<T>> {
 
     // ===== FUNCIONES AUXILIARES =====
     
-    // Reemplazar subárbol u con subárbol v
+
     private void transplant(Nodo<T> u, Nodo<T> v) {
         if (u.parent == null) {
             root = v;
@@ -245,7 +245,7 @@ public class RBT<T extends Comparable<T>> {
         }
     }
 
-    // Encontrar el nodo mínimo en un subárbol
+    // mínimo en un subárbol
     private Nodo<T> minimum(Nodo<T> node) {
         while (node.left != null) {
             node = node.left;
@@ -255,7 +255,7 @@ public class RBT<T extends Comparable<T>> {
 
     // ===== ROTACIONES =====
     
-    // Rotación a la izquierda
+    // rotación a la izquierda
     private void rotateLeft(Nodo<T> node) {
         Nodo<T> rightChild = node.right;
         node.right = rightChild.left;
@@ -278,7 +278,7 @@ public class RBT<T extends Comparable<T>> {
         node.parent = rightChild;
     }
 
-    // Rotación a la derecha
+    // rotación a la derecha
     private void rotateRight(Nodo<T> node) {
         Nodo<T> leftChild = node.left;
         node.left = leftChild.right;
@@ -300,8 +300,6 @@ public class RBT<T extends Comparable<T>> {
         leftChild.right = node;
         node.parent = leftChild;
     }
-
-    // ===== RECORRIDO IN-ORDER =====
     
     public void inOrder() {
         if (root == null) {

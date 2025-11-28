@@ -6,14 +6,14 @@ public class Nodo <T extends Comparable<T>> {
     Nodo<T> parent;
     Nodo<T> left;
     Nodo<T> right;
-    Color color; // Nuevo atributo para el color del nodo
+    Color color; 
 
     public Nodo(T elemento) {
         this.elemento = elemento;
         this.parent = null;
         this.left = null;
         this.right = null;
-        this.color = Color.RED; // Inicializar el color del nodo como rojo
+        this.color = Color.RED; 
     }
 
     public Nodo<T> getLeft() {
